@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "View",
+      "Write",
+      "Read",
+      "WebSearch",
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(gh.exe:*)",
+      "Bash(go:*)",
+      "Bash(pnpm:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(yarn:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(pwsh:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(cd:*)",
+      "Bash(echo:*)",
+      "Bash(pwd)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(do echo:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(Remove-Item -Recurse -Force C:/)",
+      "Bash(Remove-Item -Recurse -Force D:/)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)"
+    ]
+  }
+}
