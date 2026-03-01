@@ -2,67 +2,62 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-muted/20 transition-shadow duration-300">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-18">
+    <div class="flex items-center justify-between h-[72px]">
       <!-- Logo -->
-      <a href="/" class="flex-shrink-0">
+      <a href="/" class="flex-shrink-0 mr-8">
         <img src="/SmartVendNC-Logo.svg" alt="Smart Vend NC" class="h-11" />
       </a>
 
       <!-- Desktop Nav -->
-      <div class="hidden lg:flex items-center gap-8">
-        <!-- Services Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center gap-1 font-medium text-gray hover:text-primary transition-colors cursor-pointer">
-            Services
-            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-            <div class="bg-white rounded-xl shadow-lg border border-gray-muted/20 p-2 min-w-48">
-              <a href="/services/snacks" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Snacks & Bars</a>
-              <a href="/services/drinks" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Cold Beverages</a>
-              <a href="/services/fresh-food" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Fresh Food</a>
+      <div class="hidden xl:flex items-center flex-1 justify-end">
+        <div class="flex items-center gap-7">
+          <!-- Services Dropdown -->
+          <div class="relative group/services">
+            <a href="/#services" class="nav-link inline-flex items-center gap-1">
+              Services
+              <svg class="w-3.5 h-3.5 text-gray-muted transition-transform duration-200 group-hover/services:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/services:opacity-100 group-hover/services:visible transition-all duration-200">
+              <div class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-black/[0.04] p-2 w-56">
+                <a href="/services/snacks" class="dropdown-item">
+                  <span class="dropdown-dot"></span>
+                  Snacks & Bars
+                </a>
+                <a href="/services/drinks" class="dropdown-item">
+                  <span class="dropdown-dot"></span>
+                  Cold Beverages
+                </a>
+                <a href="/services/fresh-food" class="dropdown-item">
+                  <span class="dropdown-dot"></span>
+                  Fresh Food
+                </a>
+              </div>
             </div>
           </div>
+
+          <a href="/locations" class="nav-link">Locations</a>
+          <a href="/#why-us" class="nav-link">Why Us</a>
+          <a href="/#reviews" class="nav-link">Reviews</a>
+          <a href="/#about" class="nav-link">About</a>
+          <a href="/faq" class="nav-link">FAQ</a>
         </div>
 
-        <a href="/#why-us" class="font-medium text-gray hover:text-primary transition-colors">Why Us</a>
-        <a href="/#reviews" class="font-medium text-gray hover:text-primary transition-colors">Reviews</a>
-        <a href="/#about" class="font-medium text-gray hover:text-primary transition-colors">About</a>
-        <a href="/faq" class="font-medium text-gray hover:text-primary transition-colors">FAQ</a>
-
-        <!-- Locations Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center gap-1 font-medium text-gray hover:text-primary transition-colors cursor-pointer">
-            Locations
-            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-            <div class="bg-white rounded-xl shadow-lg border border-gray-muted/20 p-2 min-w-48">
-              <a href="/locations/raleigh" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Raleigh</a>
-              <a href="/locations/durham" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Durham</a>
-              <a href="/locations/cary" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Cary</a>
-              <a href="/locations/chapel-hill" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Chapel Hill</a>
-              <a href="/locations/apex" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Apex</a>
-              <a href="/locations/morrisville" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Morrisville</a>
-              <a href="/locations/holly-springs" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Holly Springs</a>
-              <a href="/locations/wake-forest" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Wake Forest</a>
-            </div>
-          </div>
+        <!-- Right side: phone + CTA -->
+        <div class="flex items-center gap-5 ml-8 pl-8 border-l border-black/[0.06]">
+          <a href="tel:9193558122" class="hidden 2xl:flex items-center gap-2 text-sm text-gray-light hover:text-primary transition-colors whitespace-nowrap">
+            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            (919) 355-8122
+          </a>
+          <a href="/#contact" class="inline-flex items-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors whitespace-nowrap">
+            Get Started
+          </a>
         </div>
-
-        <a href="/#contact" class="inline-flex items-center px-5 py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors shadow-sm">
-          Get Started
-        </a>
       </div>
 
       <!-- Mobile Hamburger -->
-      <button id="mobile-toggle" class="lg:hidden p-2 rounded-lg hover:bg-primary-light transition-colors cursor-pointer" aria-label="Toggle menu">
+      <button id="mobile-toggle" class="xl:hidden p-2 -mr-2 rounded-lg hover:bg-black/[0.03] transition-colors cursor-pointer border-none bg-transparent" aria-label="Toggle menu">
         <svg id="hamburger-icon" class="w-6 h-6 text-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -74,36 +69,31 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-muted/20">
-    <div class="px-4 py-4 space-y-1">
-      <p class="px-3 py-2 text-xs font-semibold text-gray-muted uppercase tracking-wider">Services</p>
+  <div id="mobile-menu" class="xl:hidden hidden bg-white border-t border-black/[0.04] shadow-lg">
+    <div class="px-5 py-6 space-y-1 max-h-[80vh] overflow-y-auto">
+      <p class="px-3 pt-1 pb-2 text-[11px] font-semibold text-gray-muted uppercase tracking-[0.1em]">Services</p>
       <a href="/services/snacks" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Snacks & Bars</a>
       <a href="/services/drinks" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Cold Beverages</a>
       <a href="/services/fresh-food" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Fresh Food</a>
 
-      <div class="border-t border-gray-muted/20 my-2"></div>
+      <div class="border-t border-black/[0.04] !my-4"></div>
 
       <a href="/#why-us" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Why Us</a>
       <a href="/#reviews" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Reviews</a>
       <a href="/#about" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">About</a>
       <a href="/faq" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">FAQ</a>
 
-      <div class="border-t border-gray-muted/20 my-2"></div>
+      <a href="/locations" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Locations</a>
 
-      <p class="px-3 py-2 text-xs font-semibold text-gray-muted uppercase tracking-wider">Locations</p>
-      <div class="grid grid-cols-2 gap-1">
-        <a href="/locations/raleigh" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Raleigh</a>
-        <a href="/locations/durham" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Durham</a>
-        <a href="/locations/cary" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Cary</a>
-        <a href="/locations/chapel-hill" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Chapel Hill</a>
-        <a href="/locations/apex" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Apex</a>
-        <a href="/locations/morrisville" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Morrisville</a>
-        <a href="/locations/holly-springs" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Holly Springs</a>
-        <a href="/locations/wake-forest" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Wake Forest</a>
-      </div>
+      <div class="border-t border-black/[0.04] !my-4"></div>
 
-      <div class="pt-3">
-        <a href="/#contact" class="block w-full text-center px-5 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors">
+      <a href="tel:9193558122" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray hover:text-primary transition-colors">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        (919) 355-8122
+      </a>
+
+      <div class="pt-2">
+        <a href="/#contact" class="block w-full text-center px-5 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors">
           Get Started
         </a>
       </div>
@@ -112,7 +102,50 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 <!-- Spacer for fixed navbar -->
-<div class="h-18"></div>
+<div class="h-[72px]"></div>
+
+<style>
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-gray);
+    transition: color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    transition: all 0.15s;
+  }
+  .dropdown-item:hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+  }
+  .dropdown-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-gray-muted);
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .dropdown-item:hover .dropdown-dot {
+    background: var(--color-primary);
+  }
+
+  #navbar.scrolled {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+</style>
 
 <script>
   const toggle = document.getElementById('mobile-toggle');
@@ -121,13 +154,11 @@ const currentPath = Astro.url.pathname;
   const closeIcon = document.getElementById('close-icon');
 
   toggle?.addEventListener('click', () => {
-    const isOpen = !menu?.classList.contains('hidden');
     menu?.classList.toggle('hidden');
     hamburger?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
   });
 
-  // Close mobile menu on anchor click
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu?.classList.add('hidden');
@@ -136,13 +167,8 @@ const currentPath = Astro.url.pathname;
     });
   });
 
-  // Add shadow on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      navbar?.classList.add('shadow-md');
-    } else {
-      navbar?.classList.remove('shadow-md');
-    }
+    navbar?.classList.toggle('scrolled', window.scrollY > 10);
   });
 </script>

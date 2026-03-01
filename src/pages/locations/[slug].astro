@@ -59,7 +59,8 @@ const { location } = Astro.props;
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-heading text-3xl font-bold text-gray mb-4 text-center">Areas We Serve in {location.city}</h2>
-      <p class="text-gray-light text-center max-w-2xl mx-auto mb-10">We provide free vending machine installation and maintenance throughout {location.city} and surrounding areas.</p>
+      <p class="text-gray-light text-center max-w-2xl mx-auto mb-4">We provide free vending machine installation and maintenance throughout {location.city} and surrounding areas.</p>
+      <p class="text-gray-light text-center max-w-2xl mx-auto mb-10 text-sm">{location.localFlavor}</p>
 
       <div class="flex flex-wrap justify-center gap-3 mb-14">
         {location.highlights.map((area) => (

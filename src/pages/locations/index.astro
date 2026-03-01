@@ -1,0 +1,149 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import CTABanner from "../../components/CTABanner.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Footer from "../../components/Footer.astro";
+import { locations } from "../../data/locations";
+---
+
+<Layout
+  title="Vending Machine Services Across the Triangle | Smart Vend NC"
+  description="Smart Vend NC provides free smart vending machines across the Raleigh-Durham Triangle — Raleigh, Durham, Cary, Chapel Hill, Apex, Morrisville, Holly Springs, and Wake Forest."
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-off-white via-white to-primary-light py-20">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-light text-primary rounded-full text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          8 Cities Served
+        </div>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-gray leading-tight mb-6">
+          Serving the <span class="text-primary">Triangle</span>
+        </h1>
+        <p class="text-lg text-gray-light leading-relaxed max-w-2xl mb-8">
+          Smart Vend NC proudly provides free, AI-powered vending machines to businesses throughout Wake County and the greater Raleigh-Durham Triangle. From downtown offices to suburban campuses, we deliver healthy vending wherever you need it.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#cities" class="inline-flex items-center px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-primary/25">
+            Find Your City
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          </a>
+          <a href="tel:9193558122" class="inline-flex items-center px-7 py-3.5 border-2 border-gray/20 text-gray font-semibold rounded-xl hover:border-primary hover:text-primary transition-all">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            (919) 355-8122
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats -->
+  <section class="py-12 bg-white border-b border-black/[0.04]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="font-heading text-3xl font-bold text-primary">8</p>
+          <p class="text-sm text-gray-muted mt-1">Cities Served</p>
+        </div>
+        <div>
+          <p class="font-heading text-3xl font-bold text-primary">10+</p>
+          <p class="text-sm text-gray-muted mt-1">Active Locations</p>
+        </div>
+        <div>
+          <p class="font-heading text-3xl font-bold text-primary">99.5%</p>
+          <p class="text-sm text-gray-muted mt-1">Machine Uptime</p>
+        </div>
+        <div>
+          <p class="font-heading text-3xl font-bold text-primary">24hr</p>
+          <p class="text-sm text-gray-muted mt-1">Response Time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- City Cards -->
+  <section id="cities" class="py-20 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gray mb-4">Our Service Areas</h2>
+        <p class="text-lg text-gray-light max-w-2xl mx-auto">
+          Click on any city to learn more about our vending services in your area.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {locations.map((loc) => (
+          <a href={`/locations/${loc.slug}`} class="group bg-white rounded-2xl p-8 border border-gray-muted/10 hover:border-primary/20 hover:shadow-xl transition-all duration-300">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="font-heading text-2xl font-bold text-gray group-hover:text-primary transition-colors">
+                  {loc.city}
+                </h3>
+                <p class="text-sm text-primary font-medium mt-0.5">{loc.tagline}</p>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
+                <svg class="w-5 h-5 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </div>
+            </div>
+            <p class="text-gray-light leading-relaxed text-[15px] mb-5">{loc.localFlavor}</p>
+            <div class="flex flex-wrap gap-2">
+              {loc.highlights.slice(0, 3).map((h) => (
+                <span class="px-3 py-1 bg-off-white text-gray-muted text-xs font-medium rounded-full border border-gray-muted/10">{h}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Local Matters -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h2 class="font-heading text-3xl font-bold text-gray mb-4">Why Local Matters</h2>
+        <p class="text-lg text-gray-light">
+          We're not a national call center. We're your neighbors — Triangle residents who take pride in serving our community.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-gray mb-2">Same-Day Response</h3>
+          <p class="text-sm text-gray-light">Machine issue? We're local and can be there the same day. No waiting on a distant technician.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-gray mb-2">We Know Your Area</h3>
+          <p class="text-sm text-gray-light">We understand Triangle businesses — from RTP tech campuses to Durham's Bull City startups to Cary's corporate parks.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-gray mb-2">Community First</h3>
+          <p class="text-sm text-gray-light">Founded by Ram right here in the Triangle. Every machine we place strengthens a local workplace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Don't See Your City?"
+    subheading="We're expanding across the Triangle. Get in touch — we may already be in your area or coming soon."
+  />
+  <ContactForm
+    heading="Get a Free Machine in the Triangle"
+    subheading="Tell us your location and we'll check if we service your area."
+  />
+  <Footer />
+</Layout>
