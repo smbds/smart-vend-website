@@ -1,17 +1,74 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import VideoShowcase from "../components/VideoShowcase.astro";
+import Services from "../components/Services.astro";
+import WhyUs from "../components/WhyUs.astro";
+import Testimonials from "../components/Testimonials.astro";
+import About from "../components/About.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Smart Vend NC | Free Smart Vending Machines in Raleigh & the Triangle">
+  <Navbar />
+  <Hero />
+  <VideoShowcase />
+  <Services />
+  <WhyUs />
+  <Testimonials />
+  <About />
+  <ContactForm />
+  <Footer />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Smart Vend NC",
+    "description": "Smart Vend NC provides free AI-powered vending machines with healthy snacks, drinks, and fresh food for businesses across the Raleigh-Durham Triangle area.",
+    "url": "https://smartvendnc.com",
+    "telephone": "(919) 355-8122",
+    "email": "info@smartvendnc.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2100 Gateway Centre Blvd",
+      "addressLocality": "Raleigh",
+      "addressRegion": "NC",
+      "postalCode": "27607",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Raleigh", "sameAs": "https://en.wikipedia.org/wiki/Raleigh,_North_Carolina" },
+      { "@type": "City", "name": "Durham" },
+      { "@type": "City", "name": "Cary" },
+      { "@type": "City", "name": "Chapel Hill" },
+      { "@type": "City", "name": "Apex" },
+      { "@type": "City", "name": "Morrisville" },
+      { "@type": "City", "name": "Holly Springs" },
+      { "@type": "City", "name": "Wake Forest" }
+    ],
+    "priceRange": "$$",
+    "founder": {
+      "@type": "Person",
+      "name": "Ram"
+    }
+  }
+  </script>
+</Layout>

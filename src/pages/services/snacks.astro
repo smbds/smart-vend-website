@@ -1,0 +1,101 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import CTABanner from "../../components/CTABanner.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout
+  title="Snack Vending Machines in Raleigh NC | Smart Vend NC"
+  description="Free snack vending machines for your business in Raleigh and the Triangle. Protein bars, chips, nuts, granola, and more. No contracts, fully stocked weekly."
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-off-white via-white to-primary-light py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-light text-primary rounded-full text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          Snack Vending
+        </div>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-gray leading-tight mb-6">
+          Snack Vending Machines for Your <span class="text-primary">Business</span>
+        </h1>
+        <p class="text-lg text-gray-light leading-relaxed mb-8 max-w-2xl">
+          From healthy protein bars to classic favorites, our smart vending machines keep your team energized and satisfied — all at zero cost to you.
+        </p>
+        <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-primary/25">
+          Get a Free Snack Machine
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Stock -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-4 text-center">What We Stock</h2>
+      <p class="text-gray-light text-center max-w-2xl mx-auto mb-12">Our AI-powered machines learn what your team loves and automatically optimize the selection.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {[
+          { name: "Protein Bars", desc: "Quest, KIND, RXBar, Clif, and more" },
+          { name: "Chips & Crisps", desc: "Lay's, Kettle Brand, Baked varieties" },
+          { name: "Nuts & Trail Mix", desc: "Almonds, cashews, mixed nuts, dried fruit blends" },
+          { name: "Granola & Cereal Bars", desc: "Nature Valley, Bear Naked, Kashi" },
+          { name: "Candy & Chocolate", desc: "Snickers, M&Ms, Reese's, and premium options" },
+          { name: "Healthy Snacks", desc: "Veggie straws, rice cakes, dried fruit, popcorn" },
+        ].map((item) => (
+          <div class="bg-off-white rounded-xl p-6 border border-gray-muted/10">
+            <h3 class="font-heading font-semibold text-gray mb-2">{item.name}</h3>
+            <p class="text-sm text-gray-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-12 text-center">How It Works</h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl font-bold font-heading">1</div>
+          <h3 class="font-heading font-bold text-gray mb-2">Request</h3>
+          <p class="text-gray-light text-sm">Fill out our form or call us. We'll discuss your space, team size, and snack preferences.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl font-bold font-heading">2</div>
+          <h3 class="font-heading font-bold text-gray mb-2">Install</h3>
+          <p class="text-gray-light text-sm">We deliver and install your machine for free. No contracts, no setup fees, no hassle.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl font-bold font-heading">3</div>
+          <h3 class="font-heading font-bold text-gray mb-2">Enjoy</h3>
+          <p class="text-gray-light text-sm">We handle restocking and maintenance weekly. Your team just enjoys the snacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-4">See Our Machines in Action</h2>
+      <p class="text-gray-light mb-8">Watch how our smart vending machines deliver a premium snack experience.</p>
+      <div class="rounded-2xl overflow-hidden shadow-2xl bg-gray">
+        <video controls preload="metadata" class="w-full aspect-video">
+          <source src="/SmartMart Walkthrough for Customers - MediaLink Video.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading="Get a Free Snack Machine Today" subheading="Zero cost, zero contracts. We stock it, maintain it, and keep your team happy." />
+  <ContactForm heading="Request Your Snack Machine" subheading="Tell us about your space and we'll set you up within days." />
+  <Footer />
+</Layout>

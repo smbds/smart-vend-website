@@ -1,0 +1,146 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-muted/20 transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18">
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0">
+        <img src="/SmartVendNC-Logo.svg" alt="Smart Vend NC" class="h-11" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <!-- Services Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-medium text-gray hover:text-primary transition-colors cursor-pointer">
+            Services
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-white rounded-xl shadow-lg border border-gray-muted/20 p-2 min-w-48">
+              <a href="/services/snacks" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Snacks & Bars</a>
+              <a href="/services/drinks" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Cold Beverages</a>
+              <a href="/services/fresh-food" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Fresh Food</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/#why-us" class="font-medium text-gray hover:text-primary transition-colors">Why Us</a>
+        <a href="/#reviews" class="font-medium text-gray hover:text-primary transition-colors">Reviews</a>
+        <a href="/#about" class="font-medium text-gray hover:text-primary transition-colors">About</a>
+
+        <!-- Locations Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-medium text-gray hover:text-primary transition-colors cursor-pointer">
+            Locations
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-white rounded-xl shadow-lg border border-gray-muted/20 p-2 min-w-48">
+              <a href="/locations/raleigh" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Raleigh</a>
+              <a href="/locations/durham" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Durham</a>
+              <a href="/locations/cary" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Cary</a>
+              <a href="/locations/chapel-hill" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Chapel Hill</a>
+              <a href="/locations/apex" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Apex</a>
+              <a href="/locations/morrisville" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Morrisville</a>
+              <a href="/locations/holly-springs" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Holly Springs</a>
+              <a href="/locations/wake-forest" class="block px-4 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Wake Forest</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/#contact" class="inline-flex items-center px-5 py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors shadow-sm">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-toggle" class="lg:hidden p-2 rounded-lg hover:bg-primary-light transition-colors cursor-pointer" aria-label="Toggle menu">
+        <svg id="hamburger-icon" class="w-6 h-6 text-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 text-gray hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-muted/20">
+    <div class="px-4 py-4 space-y-1">
+      <p class="px-3 py-2 text-xs font-semibold text-gray-muted uppercase tracking-wider">Services</p>
+      <a href="/services/snacks" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Snacks & Bars</a>
+      <a href="/services/drinks" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Cold Beverages</a>
+      <a href="/services/fresh-food" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Fresh Food</a>
+
+      <div class="border-t border-gray-muted/20 my-2"></div>
+
+      <a href="/#why-us" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Why Us</a>
+      <a href="/#reviews" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">Reviews</a>
+      <a href="/#about" class="block px-3 py-2.5 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors">About</a>
+
+      <div class="border-t border-gray-muted/20 my-2"></div>
+
+      <p class="px-3 py-2 text-xs font-semibold text-gray-muted uppercase tracking-wider">Locations</p>
+      <div class="grid grid-cols-2 gap-1">
+        <a href="/locations/raleigh" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Raleigh</a>
+        <a href="/locations/durham" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Durham</a>
+        <a href="/locations/cary" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Cary</a>
+        <a href="/locations/chapel-hill" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Chapel Hill</a>
+        <a href="/locations/apex" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Apex</a>
+        <a href="/locations/morrisville" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Morrisville</a>
+        <a href="/locations/holly-springs" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Holly Springs</a>
+        <a href="/locations/wake-forest" class="px-3 py-2 rounded-lg text-gray hover:bg-primary-light hover:text-primary transition-colors text-sm">Wake Forest</a>
+      </div>
+
+      <div class="pt-3">
+        <a href="/#contact" class="block w-full text-center px-5 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer for fixed navbar -->
+<div class="h-18"></div>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    hamburger?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu on anchor click
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      hamburger?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
+  });
+
+  // Add shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      navbar?.classList.add('shadow-md');
+    } else {
+      navbar?.classList.remove('shadow-md');
+    }
+  });
+</script>

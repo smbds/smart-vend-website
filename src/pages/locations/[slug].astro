@@ -1,0 +1,184 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import CTABanner from "../../components/CTABanner.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Footer from "../../components/Footer.astro";
+import { locations } from "../../data/locations";
+import type { LocationData } from "../../data/locations";
+
+export function getStaticPaths() {
+  return locations.map((loc) => ({
+    params: { slug: loc.slug },
+    props: { location: loc },
+  }));
+}
+
+interface Props {
+  location: LocationData;
+}
+
+const { location } = Astro.props;
+---
+
+<Layout
+  title={`Vending Machine Services in ${location.city} NC | Smart Vend NC`}
+  description={location.metaDescription}
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-off-white via-white to-primary-light py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-light text-primary rounded-full text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          {location.city}, NC
+        </div>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-gray leading-tight mb-6">
+          Smart Vending in <span class="text-primary">{location.city}</span>, NC
+        </h1>
+        <p class="text-lg text-gray-light leading-relaxed mb-8 max-w-2xl">
+          {location.description}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-primary/25">
+            Get a Free Machine in {location.city}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="tel:9193558122" class="inline-flex items-center px-7 py-3.5 border-2 border-gray/20 text-gray font-semibold rounded-xl hover:border-primary hover:text-primary transition-all">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            (919) 355-8122
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas We Serve -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-4 text-center">Areas We Serve in {location.city}</h2>
+      <p class="text-gray-light text-center max-w-2xl mx-auto mb-10">We provide free vending machine installation and maintenance throughout {location.city} and surrounding areas.</p>
+
+      <div class="flex flex-wrap justify-center gap-3 mb-14">
+        {location.highlights.map((area) => (
+          <span class="px-5 py-2.5 bg-off-white rounded-full text-gray font-medium border border-gray-muted/15">{area}</span>
+        ))}
+      </div>
+
+      <!-- Services -->
+      <h3 class="font-heading text-2xl font-bold text-gray mb-8 text-center">Our Services in {location.city}</h3>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <a href="/services/snacks" class="group bg-off-white rounded-2xl p-8 border border-gray-muted/10 hover:shadow-lg hover:-translate-y-1 transition-all text-center">
+          <div class="w-14 h-14 bg-primary-light rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+            <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h4 class="font-heading font-bold text-gray mb-2">Snacks & Bars</h4>
+          <p class="text-sm text-gray-light">Protein bars, chips, nuts, granola, and more</p>
+        </a>
+        <a href="/services/drinks" class="group bg-off-white rounded-2xl p-8 border border-gray-muted/10 hover:shadow-lg hover:-translate-y-1 transition-all text-center">
+          <div class="w-14 h-14 bg-primary-light rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+            <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h4 class="font-heading font-bold text-gray mb-2">Cold Beverages</h4>
+          <p class="text-sm text-gray-light">Water, sodas, energy drinks, juices</p>
+        </a>
+        <a href="/services/fresh-food" class="group bg-off-white rounded-2xl p-8 border border-gray-muted/10 hover:shadow-lg hover:-translate-y-1 transition-all text-center">
+          <div class="w-14 h-14 bg-primary-light rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+            <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          </div>
+          <h4 class="font-heading font-bold text-gray mb-2">Fresh Food</h4>
+          <p class="text-sm text-gray-light">Salads, sandwiches, wraps, healthy meals</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Local Businesses Choose Us -->
+  <section class="py-20 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-10 text-center">Why {location.city} Businesses Choose Us</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white rounded-xl p-6 border border-gray-muted/10 text-center">
+          <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h4 class="font-heading font-semibold text-gray mb-1">Zero Cost</h4>
+          <p class="text-sm text-gray-light">Free machine, installation, and maintenance</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-muted/10 text-center">
+          <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h4 class="font-heading font-semibold text-gray mb-1">No Contracts</h4>
+          <p class="text-sm text-gray-light">No long-term commitments or hidden fees</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-muted/10 text-center">
+          <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h4 class="font-heading font-semibold text-gray mb-1">Local Team</h4>
+          <p class="text-sm text-gray-light">Triangle-based with same-day response</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-muted/10 text-center">
+          <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h4 class="font-heading font-semibold text-gray mb-1">Smart Tech</h4>
+          <p class="text-sm text-gray-light">AI-powered inventory and cashless payments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial (if available) -->
+  {location.testimonial && (
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <svg class="w-12 h-12 text-primary/20 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+        <blockquote class="text-xl text-gray leading-relaxed mb-6 italic">
+          "{location.testimonial.quote}"
+        </blockquote>
+        <p class="font-heading font-semibold text-gray">{location.testimonial.name}</p>
+        <p class="text-sm text-gray-muted">{location.testimonial.title}</p>
+      </div>
+    </section>
+  )}
+
+  <CTABanner
+    heading={`Get a Free Vending Machine in ${location.city}`}
+    subheading={`Join other ${location.city} businesses that trust Smart Vend NC for healthy, hassle-free vending.`}
+  />
+  <ContactForm
+    heading={`Request a Machine in ${location.city}`}
+    subheading={`Tell us about your ${location.city} location and we'll have you set up quickly.`}
+  />
+  <Footer />
+
+  <!-- Location Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `Smart Vend NC - ${location.city}`,
+    "description": location.metaDescription,
+    "url": `https://smartvendnc.com/locations/${location.slug}`,
+    "telephone": "(919) 355-8122",
+    "email": "info@smartvendnc.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": location.city,
+      "addressRegion": "NC",
+      "addressCountry": "US",
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": location.city,
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Smart Vend NC",
+      "url": "https://smartvendnc.com",
+    },
+  })} />
+</Layout>

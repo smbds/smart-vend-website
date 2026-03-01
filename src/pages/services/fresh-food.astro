@@ -1,0 +1,107 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import CTABanner from "../../components/CTABanner.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout
+  title="Fresh Food Vending Machines in Raleigh NC | Smart Vend NC"
+  description="Free fresh food vending machines with salads, sandwiches, wraps, and healthy meals for businesses in Raleigh and the Triangle. AI-powered freshness tracking."
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-off-white via-white to-primary-light py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-light text-primary rounded-full text-sm font-medium mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          Fresh Food Vending
+        </div>
+        <h1 class="font-heading text-4xl sm:text-5xl font-bold text-gray leading-tight mb-6">
+          Fresh Food Machines for Your <span class="text-primary">Business</span>
+        </h1>
+        <p class="text-lg text-gray-light leading-relaxed mb-8 max-w-2xl">
+          Salads, sandwiches, wraps, and healthy prepared meals — available 24/7 from our smart vending machines. AI-powered freshness tracking ensures every item is fresh.
+        </p>
+        <a href="#contact" class="inline-flex items-center px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-primary/25">
+          Get a Free Fresh Food Machine
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Stock -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-4 text-center">What We Stock</h2>
+      <p class="text-gray-light text-center max-w-2xl mx-auto mb-12">Real food, freshly made. Our AI tracks expiration dates and restocking needs in real-time.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {[
+          { name: "Salads", desc: "Caesar, garden, Greek, Asian sesame, and seasonal varieties" },
+          { name: "Sandwiches", desc: "Turkey club, ham & cheese, chicken salad, veggie options" },
+          { name: "Wraps", desc: "Chicken Caesar, buffalo chicken, veggie hummus, BLT wraps" },
+          { name: "Healthy Bowls", desc: "Grain bowls, quinoa salads, protein bowls with fresh veggies" },
+          { name: "Fresh Fruit", desc: "Fruit cups, apple slices, mixed berry cups, banana" },
+          { name: "Yogurt & Parfaits", desc: "Greek yogurt, fruit parfaits, overnight oats" },
+        ].map((item) => (
+          <div class="bg-off-white rounded-xl p-6 border border-gray-muted/10">
+            <h3 class="font-heading font-semibold text-gray mb-2">{item.name}</h3>
+            <p class="text-sm text-gray-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Freshness Guarantee -->
+  <section class="py-20 bg-off-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-12 text-center">AI-Powered Freshness</h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-gray mb-2">Expiration Tracking</h3>
+          <p class="text-gray-light text-sm">Every item is monitored. Expired products are automatically flagged and removed before you ever see them.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-gray mb-2">Temperature Control</h3>
+          <p class="text-gray-light text-sm">Refrigerated compartments maintain optimal temperature 24/7 for maximum freshness.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="font-heading font-bold text-gray mb-2">Regular Rotation</h3>
+          <p class="text-gray-light text-sm">Fresh items delivered multiple times per week. Our AI predicts demand so nothing goes to waste.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-3xl font-bold text-gray mb-4">See Our Machines in Action</h2>
+      <p class="text-gray-light mb-8">Watch how our smart machines keep fresh food available around the clock.</p>
+      <div class="rounded-2xl overflow-hidden shadow-2xl bg-gray">
+        <video controls preload="metadata" class="w-full aspect-video">
+          <source src="/SmartMart Walkthrough for Customers - MediaLink Video.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading="Fresh Food, Zero Cost" subheading="Give your team healthy meal options without the hassle. We handle everything." />
+  <ContactForm heading="Request Your Fresh Food Machine" subheading="Tell us about your space and we'll customize the perfect fresh food selection." />
+  <Footer />
+</Layout>
