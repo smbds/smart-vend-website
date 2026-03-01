@@ -1,0 +1,172 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import CTABanner from "../components/CTABanner.astro";
+import Footer from "../components/Footer.astro";
+
+const faqs = [
+  {
+    question: "What is a SmartMart, and how does it work?",
+    answer: "A SmartMart is a next-generation vending machine powered by advanced AI vision technology. Unlike traditional vending machines, you can open the door, pick up items, evaluate them, and only pay for what you keep. The machine tracks inventory and transactions in real-time — no checkout lines, no buttons to push. Just grab what you want and go.",
+  },
+  {
+    question: "Is there really no cost to my business?",
+    answer: "Absolutely. We provide the machine, deliver it, install it, stock it, and maintain it — all at zero cost to you. There are no setup fees, no monthly charges, and no hidden costs. You simply provide the location and an electrical outlet, and we handle everything else.",
+  },
+  {
+    question: "Who stocks and maintains the machines?",
+    answer: "Our local Smart Vend NC team handles all monitoring, stocking, and servicing. We're Triangle residents committed to offering a great experience to your employees and customers. Our AI system alerts us when stock runs low so we can restock proactively — usually before you even notice.",
+  },
+  {
+    question: "Can we choose the products in our machine?",
+    answer: "Yes! We'll initially fill the machine with our most popular items based on your location type — office, gym, hospital, etc. After installation, we'll meet to discuss your team's preferences and adjust the selection. We can even arrange free product sampling events so your team can try new items and vote on favorites.",
+  },
+  {
+    question: "How often are the machines restocked?",
+    answer: "Typically about once a week, but it depends on your location's demand. Our machines are remotely monitored in real-time, so we know exactly when stock is running low. High-traffic locations may receive more frequent service — we'll customize the schedule to ensure your machine is always full.",
+  },
+  {
+    question: "What types of products do you stock?",
+    answer: "We offer a wide variety including healthy options like protein bars, nuts, salads, sandwiches, and wraps, alongside traditional favorites like chips, candy, sodas, and energy drinks. We also stock fresh food items like prepared meals, yogurt parfaits, and fruit cups. Our machines are temperature-controlled to keep everything fresh.",
+  },
+  {
+    question: "Do we have to sign a long-term contract?",
+    answer: "No long-term commitments required. We ask for a basic agreement that outlines our relationship — it simply establishes that Smart Vend NC is responsible for stocking and maintaining the machine. There's no time commitment, and you can end the arrangement whenever you'd like.",
+  },
+  {
+    question: "What if we already have a contract with another vending company?",
+    answer: "Almost always, we can still place a SmartMart at your location. Most existing vending contracts cover traditional machines, while our SmartMart offers a distinctly different experience with healthier and fresh options. We're happy to review your situation and find a solution that works.",
+  },
+  {
+    question: "What types of businesses do you serve?",
+    answer: "We serve a wide range of locations including offices, gyms, indoor sports centers, hospitals, apartment complexes, car dealerships, colleges, warehouses, and more. If you have a space with regular foot traffic, a SmartMart is a great fit. We'll assess your location and recommend the best setup.",
+  },
+  {
+    question: "How many machines can you provide?",
+    answer: "As many as your space needs! The number depends on your foot traffic volume and facility layout. We'll visit your location, assess the needs of your employees and customers, and recommend the right number of machines to keep everyone happy.",
+  },
+  {
+    question: "What payment methods are accepted?",
+    answer: "Our machines accept all major credit and debit cards, Apple Pay, Google Pay, and other contactless payment methods. Everything is cashless for a fast, seamless experience.",
+  },
+  {
+    question: "What areas do you serve?",
+    answer: "We proudly serve businesses throughout the Raleigh-Durham Triangle area including Raleigh, Durham, Cary, Chapel Hill, Apex, Morrisville, Holly Springs, and Wake Forest. If you're in the Triangle region, we'd love to talk.",
+  },
+];
+---
+
+<Layout
+  title="FAQ | Smart Vend NC — Frequently Asked Questions"
+  description="Got questions about Smart Vend NC's free vending machines? Find answers about our SmartMart machines, products, installation, costs, and service areas."
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-off-white via-white to-primary-light py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-light text-primary rounded-full text-sm font-medium mb-6">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        FAQ
+      </div>
+      <h1 class="font-heading text-4xl sm:text-5xl font-bold text-gray mb-4">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-lg text-gray-light max-w-2xl mx-auto">
+        Everything you need to know about Smart Vend NC and our free smart vending machines. Can't find your answer? <a href="/#contact" class="text-primary hover:underline font-medium">Get in touch</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-4">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-gray-muted/20 rounded-xl overflow-hidden" data-faq>
+            <button
+              class="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer hover:bg-off-white/50 transition-colors"
+              aria-expanded="false"
+              data-faq-toggle
+            >
+              <span class="font-heading font-semibold text-gray pr-4">{faq.question}</span>
+              <svg class="w-5 h-5 text-gray-muted flex-shrink-0 transition-transform duration-300 faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-5">
+              <p class="text-gray-light leading-relaxed">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Have Questions -->
+  <section class="py-16 bg-off-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-2xl font-bold text-gray mb-3">Still Have Questions?</h2>
+      <p class="text-gray-light mb-6">We'd love to hear from you. Reach out and we'll get back to you within 24 hours.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/#contact" class="inline-flex items-center px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-primary/25">
+          Contact Us
+        </a>
+        <a href="tel:9193558122" class="inline-flex items-center px-7 py-3.5 border-2 border-gray/20 text-gray font-semibold rounded-xl hover:border-primary hover:text-primary transition-all">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          (919) 355-8122
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+  <Footer />
+
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  })} />
+</Layout>
+
+<style>
+  .faq-item.active .faq-chevron {
+    transform: rotate(180deg);
+  }
+  .faq-item.active button {
+    background-color: var(--color-off-white);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-faq-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('[data-faq]');
+      const answer = item?.querySelector('.faq-answer');
+      const isOpen = item?.classList.contains('active');
+
+      // Close all others
+      document.querySelectorAll('[data-faq]').forEach((el) => {
+        el.classList.remove('active');
+        el.querySelector('.faq-answer')?.classList.add('hidden');
+        el.querySelector('[data-faq-toggle]')?.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item?.classList.add('active');
+        answer?.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
