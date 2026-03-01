@@ -15,7 +15,8 @@ import Footer from "../../components/Footer.astro";
   <!-- Hero -->
   <section class="relative bg-gradient-to-br from-off-white via-white to-primary-light py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
         <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-light text-primary rounded-full text-sm font-medium mb-6">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
           Beverage Vending
@@ -30,6 +31,13 @@ import Footer from "../../components/Footer.astro";
           Get a Free Beverage Machine
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
+      </div>
+      <div class="hidden lg:flex justify-center">
+        <div class="relative">
+          <div class="absolute -inset-6 bg-primary/10 rounded-3xl blur-2xl"></div>
+          <img src="/Hero-Machine.png" alt="SmartMart vending machine stocked with cold beverages" class="relative w-full max-w-xs drop-shadow-2xl" />
+        </div>
+      </div>
       </div>
     </div>
   </section>

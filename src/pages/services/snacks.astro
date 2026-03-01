@@ -15,7 +15,8 @@ import Footer from "../../components/Footer.astro";
   <!-- Hero -->
   <section class="relative bg-gradient-to-br from-off-white via-white to-primary-light py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
         <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-light text-primary rounded-full text-sm font-medium mb-6">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           Snack Vending
@@ -30,6 +31,13 @@ import Footer from "../../components/Footer.astro";
           Get a Free Snack Machine
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
+      </div>
+      <div class="hidden lg:flex justify-center">
+        <div class="relative">
+          <div class="absolute -inset-6 bg-primary/10 rounded-3xl blur-2xl"></div>
+          <img src="/Hero-Machine.png" alt="SmartMart vending machine stocked with snacks" class="relative w-full max-w-xs drop-shadow-2xl" />
+        </div>
+      </div>
       </div>
     </div>
   </section>
