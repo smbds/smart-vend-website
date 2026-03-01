@@ -15,6 +15,10 @@
   --font-body: "Source Sans 3", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
