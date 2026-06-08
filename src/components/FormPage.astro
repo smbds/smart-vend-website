@@ -55,7 +55,7 @@ const {
               <p class="text-sm text-gray leading-relaxed">{notice}</p>
             </div>
           )}
-          <div data-form-slug={formSlug}></div>
+          <script src="https://app.getscalio.com/embed.js" data-form-slug={formSlug} async is:inline></script>
           <noscript>
             <p class="text-gray-light text-center py-8">
               This form requires JavaScript. Please email
@@ -104,7 +104,4 @@ const {
   </section>
 
   <Footer />
-
-  <!-- Scalio forms widget -->
-  <script src="https://app.getscalio.com/forms-widget.js" async is:inline></script>
 </Layout>
