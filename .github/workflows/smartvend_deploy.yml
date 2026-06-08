@@ -1,0 +1,67 @@
+name: Deploy Smart Vend NC Site
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_description:
+        description: 'Brief description of this deployment'
+        required: false
+        default: 'Manual deployment of Smart Vend NC website'
+
+jobs:
+  deploy:
+    name: Build and Deploy Smart Vend NC to Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add server to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Prepare deployment directory
+        run: |
+          echo "Ensuring deployment directory exists with proper permissions..."
+          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "mkdir -p /tmp/smartvend-deploy && chmod 755 /tmp/smartvend-deploy"
+
+      - name: Upload built site to /tmp/smartvend-deploy
+        run: |
+          echo "Uploading built Astro site to /tmp/smartvend-deploy on ${{ secrets.SSH_HOST }}..."
+          scp -r ./dist/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/tmp/smartvend-deploy/
+
+      - name: Execute server-side deployment script
+        run: |
+          echo "Running deployment script on server..."
+          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "bash -c 'cd /var/www/shared && ./deploy_smartvend.sh --deploy-from-github'"
+
+      - name: Notify success
+        if: success()
+        run: |
+          echo "✅ Smart Vend NC deployment completed successfully!"
+          echo "Deployment description: ${{ github.event.inputs.deployment_description }}"
+
+      - name: Notify failure
+        if: failure()
+        run: |
+          echo "❌ Smart Vend NC deployment failed!"
+          echo "Please check logs for details and fix issues immediately."
